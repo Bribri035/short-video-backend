@@ -1,19 +1,18 @@
 import express from 'express'
 import mongoose from 'mongoose'
+import Cors from 'cors'
 import Videos from './dbModel.js'
+
 //App Config
 const app = express()
 const port = process.env.PORT||9000
 const connection_url = 'mongodb+srv://nodeServer:jvDuxoVRv0XsEtmE@cluster0.bsjcc1v.mongodb.net/?retryWrites=true&w=majority'
 
-//Middleware
-
+//iddleware
+app.use(express.json)
+app.use(Cors())
 //DB Config
-mongoose.connect(connection_url,{
-    useNewUrlParser:true,
-    useCreatIndex:true,
-    useUnifiedTopology:true
-})
+mongoose.connect(connection_url)
 
 //API Endpoints
 app.post('/v2/posts' , (req , res)=>{
