@@ -6,14 +6,19 @@ import Videos from './dbModel.js'
 //App Config
 const app = express()
 const port = process.env.PORT||9000
-const connection_url = 'mongodb+srv://nodeServer:jvDuxoVRv0XsEtmE@cluster0.bsjcc1v.mongodb.net/?retryWrites=true&w=majority'
+//const connection_url = 'mongodb+srv://nodeServer:jvDuxoVRv0XsEtmE@cluster0.bsjcc1v.mongodb.net/?retryWrites=true&w=majority'
 
 //iddleware
 app.use(express.json)
 app.use(Cors())
 //DB Config
-mongoose.connect(connection_url)
-
+//mongoose.connect(connection_url)
+try {
+    mongoose.connect( process.env.DB, {useNewUrlParser: true, useUnifiedTopology: true}, () =>
+        console.log("connected"));
+}catch (error) {
+    console.log("could not connect");
+}
 //API Endpoints
 app.get('/' , (req, res)=>{
 
@@ -42,4 +47,4 @@ app.get('/v2/posts' , (req , res)=>{
 
 //Listener
 
-app.listen(port, ()=> console.log('lisening on localhost: ${port}'))
+app.listen(port, ()=> console.log(`lisening on localhost: ${port}`))

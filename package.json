@@ -12,8 +12,9 @@
   "description": "",
   "dependencies": {
     "cors": "^2.8.5",
-    "express": "^4.19.2",
-    "mongoose": "^8.3.3",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "mongoose": "^5.11.18",
     "nodemon": "^3.1.0"
   }
 }
