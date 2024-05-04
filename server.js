@@ -16,7 +16,7 @@ app.use(Cors())
 //DB Config
 //mongoose.connect(connection_url)
 
-const DBtot = 'mongodb+srv://nodeServer:jvDuxoVRv0XsEtmE@cluster0.bsjcc1v.mongodb.net/?retryWrites=true&w=majority&appName=cluster0'
+const DBtot = 'mongodb+srv://nodeServer:jvDuxoVRv0XsEtmE@cluster0.bsjcc1v.mongodb.net/?retryWrites=true&w=majority'
 try {
     mongoose.connect( DBtot, {useNewUrlParser: true, useUnifiedTopology: true}, () =>
         console.log("connected"));
