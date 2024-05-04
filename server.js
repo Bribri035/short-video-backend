@@ -15,6 +15,11 @@ app.use(Cors())
 mongoose.connect(connection_url)
 
 //API Endpoints
+app.get('/' , (req, res)=>{
+
+   res.send('hello from simple server :)')
+
+})
 app.post('/v2/posts' , (req , res)=>{
     const dbVideos = req.body
     Videos.create(dbVideos, (err, data)=>{
